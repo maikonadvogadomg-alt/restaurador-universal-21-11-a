@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurador Universal</title>
+<!-- ♻️ RESTAURADOR UNIVERSAL DE BACKUPS (21/11) — projeto modular: cada tipo de backup é uma PEÇA em js/pecas/.
+     📥 importar → 👁 ver ao vivo → ♻️ restaurar no Meu Chat / SK Jurídico → ⬇ baixar no formato original.
+     Juntou o que os códigos do Claude 4.6 faziam (organizador dos projetos da Replit e leitor do AI Code Studio)
+     com o Reconhecer dos seus apps. Só lê os arquivos: nada vai para a internet. Chaves e senhas não saem. -->
+<link rel="stylesheet" href="css/app.css">
+  <!-- PWA:inicio (gerado pelo Mini SK — pode refazer no painel 📱 PWA) -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Restaurador Universal">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <script>
+    if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+      addEventListener('load', function () { navigator.serviceWorker.register('service-worker.js').catch(function (e) { console.warn('Service worker:', e); }); });
+    }
+  </script>
+  <!-- PWA:fim -->
+</head>
+<body>
+<div class="c">
+  <h1>♻️ Restaurador Universal <span class="mut" style="font-size:13px">v21/11-A</span></h1>
+  <p class="mut">Escolha backups de qualquer app seu. Eu descubro o que é, mostro <b>ao vivo</b>, devolvo cada coisa no <b>formato original</b> e, se quiser, <b>restauro</b> no Meu Chat ou no SK Jurídico. Só leio: nada vai para a internet. Chaves e senhas não saem.</p>
+  <div class="cartao" id="solta">
+    <div class="linha" style="justify-content:center"><button class="p" id="b-esc">📂 Escolher backups</button></div>
+    <input type="file" id="arq" multiple accept=".json,.zip,.csv,.tsv,.txt" hidden>
+    <p class="mut">.json · .zip · .csv · .tsv — pode escolher vários de uma vez.</p>
+  </div>
+  <div id="saida"></div>
+  <details class="cartao"><summary><b>🧩 Peças instaladas</b> (uma para cada tipo de backup)</summary><ul id="pecas"></ul>
+    <p class="mut">Tipo novo de backup? Cria-se uma peça nova em <code>js/pecas/</code> e pronto — o resto não muda.</p></details>
+</div>
+<script src="js/lib/jszip.min.js"></script>
+<script src="js/lib/segredos.js"></script>
+<script src="js/lib/reconhecer.js"></script>
+<script src="js/00-base.js"></script>
+<script src="js/pecas/10-meus-apps.js"></script>
+<script src="js/pecas/20-replit-projetos.js"></script>
+<script src="js/pecas/21-ai-code-studio.js"></script>
+<script src="js/pecas/22-chatgpt.js"></script>
+<script src="js/pecas/23-mensagens.js"></script>
+<script src="js/pecas/30-tabela.js"></script>
+<script src="js/pecas/90-procurar.js"></script>
+<script src="js/80-tela.js"></script>
+</body>
+</html>
